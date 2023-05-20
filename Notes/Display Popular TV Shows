@@ -1,0 +1,7 @@
+This was essentially the same as displaying the popular movies lecture except for a few obvious differences, such as changing the template literals that we use to access the results data. E.g. Movies use ${movies.title} whereas shows use ${shows.name}.
+
+I once again had to remove the hard-coded cards from the shows.html page so that JavaScript could populate the DOM with the divs/cards we create from the same displayPopularMovies() function.
+
+Following this, we obviously now need to add this function into our init() switch statement so that it only runs when we are on the TV Shows page.
+
+As a small adjustment, I noticed that Brad's CSS did not take into account smaller images inside of the cards which meant that some text did not sit correctly at the bottom of the card. To fix this, I applied a display type of flex to the cards and used space-between. All fixed!
