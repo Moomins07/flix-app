@@ -1,0 +1,20 @@
+I've decided to add a notes section to this project as it seems to be a relatively large project with a lot to cover.
+
+Lesson one and I already see the value of this particular project, especially since Page Routing and Active Links is something I have not covered before. I'll be sure to refer to this lecture and/or notes in future projects.
+
+Firstly, I now know that to find the current page, I must use window.location.pathname. In the project, we've stored that into an object called 'global' as I'd imagine there's many more to add.
+global.currentPage now returns the current page I am.
+
+Secondly, the page routing, we stored a switch statement inside of our init() function. The switch statement checks global.currentPage to our various website pages such as '/', '/shows.html' etc and returns a simple console.log for now, to confirm that it works. Which it does!
+
+Naturally, we then added our init() function to an eventlistener of 'DOMContentLoaded', so that the init() function continues to run everytime the page has loaded, which is obviously important as we need the checks to be made everytime we load a new page.
+
+I attempted to add the Active-Link functionality myself but ultimately found myself stuck when I did not realise that a CSS class of 'active' already existed and I did not use it.
+
+I realised that I'd first need to check the currentPage against the Nav-link. I poorly attempted this by trying to store both Nav-links in a variable and using nth-child selectors. As there were only 2 links, I did not think to use querySelectorAll which is clearly the better option regardless.
+
+Following this I tried to make the if statement check the 'href' of the pages without using getAttribute('href'), which is why it inevitably would not work.
+
+I realised this early on, but I could not remember the 'getAttribute' method, so I suppose I was 'close' to solving this issue. I also realised early on that I'd need to add our 'highlightActiveLink' function at the bottom of our init() function as we'd need it to make these checks every time we change current page.
+
+I've learned a lot from this short lecture and I'll be incorporating what I've learned in my future, personal projects.
