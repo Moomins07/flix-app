@@ -5,7 +5,7 @@ Lesson one and I already see the value of this particular project, especially si
 Firstly, I now know that to find the current page, I must use window.location.pathname. In the project, we've stored that into an object called 'global' as I'd imagine there's many more to add.
 global.currentPage now returns the current page I am.
 
-Secondly, the page routing, we stored a switch statement inside of our init() function. The switch statement checks global.currentPage to our various website pages such as '/', '/shows.html' etc and returns a simple console.log for now, to confirm that it works. Which it does!
+Secondly, for the page routing, we stored a switch statement inside of our init() function. The switch statement checks global.currentPage to our various website pages such as '/', '/shows.html' etc and returns a simple console.log for now, to confirm that it works. Which it does!
 
 Naturally, we then added our init() function to an eventlistener of 'DOMContentLoaded', so that the init() function continues to run everytime the page has loaded, which is obviously important as we need the checks to be made everytime we load a new page.
 

@@ -1,0 +1,17 @@
+The API includes 'movie backdrop', which we can use to make the site look a little more professional.
+We will be using the backdrop on both our movie details and tv details page.
+We first create a function called displayBackgroundImage with 2 parameters (type and backgroundPath)
+displayBackgroundImage(type, backgroundPath)
+
+Inside of this function I created a div.
+I then use style.backgroundImage to target a specific url with the id.
+overlayDiv.style.backgroundImage = `url(https://image.tmdb.org/t/p/original/${backgroundPath})`;
+Followed by a lot of CSS styling inside of the function, which I'm not too sure if I'm happy with. I personally feel like it may have been better to store these styles in a class within our stylesheet, especially as there is so many of them.
+
+Lastly, an if statement that checks whether it is tv details or movie details.
+
+if (type === 'movie') {
+document.querySelector('#movie-details').appendChild(overlayDiv);
+} else document.querySelector('#show-details').appendChild(overlayDiv);
+
+By calling this function inside of our displayMovieDetails() function, our backdrop is added!

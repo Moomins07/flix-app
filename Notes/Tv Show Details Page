@@ -1,0 +1,5 @@
+This was obviously once again very similar to our movie details page. I removed the hard-coded values from the HTML and copied our displayMovieDetails function and changed the template literals as needed to produce the data on the site.
+
+No real issues to report, except for the lack of mobile responsiveness in the site as flexbox/grid was not properly being utilised on the details pages. I somewhat fixed this but I can appreciate that this project is obviously for JavaScript purposes, not necessarily making the website look 'perfect'.
+
+Some of the data property names change when using TV shows data, rather than the movie data, so I naturally found that a lot of the code wasn't necessarily returning the data when I simply changed our data variable from movie > show. Thankfully my lecturer is already aware of this and knows the correct API data property names, but obviously if this were not the case, I would have to console.log and check the returned data myself or refer to the API reference guide.

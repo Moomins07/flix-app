@@ -17,6 +17,9 @@ body {
   background: var(--color-primary);
   color: #fff;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
@@ -149,7 +152,7 @@ ul {
 .main-footer {
   background: #020d18;
   padding: 20px 0;
-  margin-top: 20px;
+  margin-top: auto;
 }
 
 .main-footer .container {
@@ -344,4 +347,10 @@ section h2 {
 
 .alert-error {
   background: red;
+}
+
+@media screen and (max-width: 768px) {
+  .details-top {
+    flex-direction: column; /* Stack the children vertically on small screens */
+  }
 }
