@@ -1,0 +1,49 @@
+This lesson was really cool and something I've wanted to do for a long time, which is to use a library to create some animated site effects.
+
+After following this lecture, there's a a 'Now Playing' section at the top of the site that scrolls through movies that are currently playing in Cinemas. It is also mobile responsive and customiseable!
+
+The code itself was not particularly difficult to follow as it's followed somewhat of the same general process as previous functions.
+
+First we create the function displaySlider(), which is placed with our index.html section in our page-routing. We async await using our fetchAPIData() function from 'movie/now_playing'. 
+
+We destructure and 'pull' the 'results' from that data followed by looping through that data and once again creating a div for each movie. We add a class of 'slider-swipe' to each div created and then set the innerHTML of the created divs as follows:
+
+
+            `<a href="movie-details.html?id=${movie.id}">
+              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" />
+            </a>
+            <h4 class="swiper-rating">
+              <i class="fas fa-star text-secondary"></i> ${movie.vote_average} / 10
+            </h4>`;
+
+We make sure they are clickable links by using anchor tags and movie.id. We use poster_path again for the images, followed by the rating of the movie and appending the div to the parent container of .swiper-wrapper.
+
+It's important to note that the swiper animation requires a little more setting up, so we also invoke the function of 'initSwiper()' within the forEach loop so that it is called everytime a div is created.
+
+The initSwiper function is mostly just configuration as you can see below: 
+
+function initSwiper() {
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    freeMode: true,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      500: {
+        slidesPerView: 2,
+      },
+      700: {
+        slidesPerView: 3,
+      },
+      1200: {
+        slidesPerView: 4,
+      },
+    },
+  });
+}
+
+Definitely using this again!

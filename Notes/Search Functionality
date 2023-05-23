@@ -1,0 +1,53 @@
+This lecture was a little more difficult to follow as search functionality is an entirely new concept to me. I felt like I was however able to keep up with the lecture and understand the code.
+
+The first important changes to note here was Brad's decision to move the API key and URL from the fetchAPIData() function into the global object as well as adding a new search object with keys that we'll be using later to determine whether we're searching for a movie or a tv show.
+
+const global = {
+currentPage: window.location.pathname,
+search: {
+term: '',
+type: '',
+page: 1,
+totalPages: 1,
+},
+api: {
+apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
+apiUrl: 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
+},
+};
+
+Interestingly, the search submit button actually directs to a different HTML page entirely appropriately named 'search.html'. Due to this, I have created a search() function that is placed in the page-routing under our search.html page.
+
+Firstly, the search function needs to store two important pieces of data.
+window.location.search again, followed by the search parameters.
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+queryString has stored '?type=movie&search-term=[whatever we search here]'
+
+urlParams has stored an instantiation of the object URLSearchParams that I have passed queryString into.
+
+This is important as the URLSearchParams object gives me access to a variety of methods made available within the prototype object such as 'get()'.
+
+By using get(), I am able to specifically return the 'type' or 'search-term' that we can then use for condition checks to see exactly what we are searching for, and whether or not the 'type' is a movie or tv-show!
+
+global.search.type = urlParams.get('type');
+global.search.term = urlParams.get('search-term');
+
+I'll now store the 'type' and 'search-term' inside of the global object and run a condition check to see whether or not there is text within the search bar, and if there isn't, alert the user on screen.
+
+if (global.search.term !== '' && global.search.term !== null) {
+const results = await searchAPIData();
+console.log(results);
+} else {
+showAlert('Please enter a search term');
+}
+
+If the condition passes, we want to await data from the new searchAPIData function which is very similar to the fetchAPIData function. The main differences here being that I'm now adding a 'search type' and a 'search term' from the global object into the API URL.
+
+const response = await fetch(
+`${API_URL}search/${global.search.type}?api_key=${API_KEY}&language=en-US&query=${global.search.term}`
+);
+
+The global object will update according to whether or not we have Movies or TV Shows selected when we search and now provide is with the correct search results!
